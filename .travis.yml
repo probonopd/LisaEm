@@ -7,11 +7,14 @@ install:
   - sudo apt-get -y install libwxgtk2.8-dev netpbm
 
 script:
-  - ls
+  - mkdir -p bin
   - ./configure
   - ./build.sh clean --with-static --without-rawbitmap build
-  - ./build.sh install 
-  # - mkdir appdir ; sudo mv /usr/local appdir/usr ; find appdir/
+  - ./build.sh install
+  - mkdir -p appdir/usr/{bin,share}
+  - cp /usr/local/bin{lisaem,lisafsh-tool} appdir/usr/bin
+  - cp /usr/local/share/LisaEm appdir/usr/share
+  - find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
