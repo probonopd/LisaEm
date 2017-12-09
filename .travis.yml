@@ -9,8 +9,8 @@ install:
 script:
   - mkdir -p bin
   - ./configure
-  - ./build.sh clean --with-static --without-rawbitmap build
-  - ./build.sh install
+  - ./build.sh clean --without-static --without-rawbitmap build
+  - sudo ./build.sh install
   - mkdir -p appdir/usr/{bin,share}
   - cp /usr/local/bin{lisaem,lisafsh-tool} appdir/usr/bin
   - cp /usr/local/share/LisaEm appdir/usr/share
