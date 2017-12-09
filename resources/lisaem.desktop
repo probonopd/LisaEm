@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=LisaEm
+Exec=lisaem
+Comment=Lisa emulator
+Categories=System;Emulator;
+Type=Application
+Icon=lisa2icon
