@@ -12,8 +12,8 @@ script:
   - ./build.sh clean --without-static --without-rawbitmap build
   - sudo ./build.sh install
   - mkdir -p appdir/usr/{bin,share}
-  - cp /usr/local/bin/{lisaem,lisafsh-tool} appdir/usr/bin/
-  - cp /usr/local/share/LisaEm appdir/usr/share/
+  - cp -r /usr/local/bin/{lisaem,lisafsh-tool} appdir/usr/bin/
+  - cp -r /usr/local/share/LisaEm appdir/usr/share/
   - find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
