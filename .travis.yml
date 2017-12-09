@@ -4,7 +4,7 @@ sudo: require
 dist: trusty
 
 install:
-  - sudo apt-get -y install libwxgtk2.8-dev netpbm
+  - sudo apt-get -y install libwxgtk2.8-dev netpbm imagemagick
 
 script:
   - mkdir -p bin # Needed by build.sh, FIXME
@@ -15,6 +15,9 @@ script:
   - mkdir -p appdir/usr/{bin,share}
   - cp -r /usr/local/bin/lisaem appdir/usr/bin/ # Where is lisafsh-tool?
   - cp -r /usr/local/share/LisaEm appdir/usr/share/
+  - mkdir -p appdir/usr/share/applications/ ; cp resources/lisaem.desktop appdir/usr/share/applications/
+  - mkdir -p appdir/usr/share/icons/hicolor/128x128/apps/
+  - convert resources/lisa2icon.xpm -gravity center -extent 128x128 appdir/usr/share/icons/hicolor/128x128/apps/lisa2icon.png
   - find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
