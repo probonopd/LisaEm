@@ -8,9 +8,10 @@ install:
 
 script:
   - ls
+  - ./configure
   - ./build.sh clean --with-static --without-rawbitmap build
   - ./build.sh install 
-  - mkdir appdir ; sudo mv /usr/local appdir/usr ; find appdir/
+  # - mkdir appdir ; sudo mv /usr/local appdir/usr ; find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
