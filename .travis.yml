@@ -4,10 +4,10 @@ sudo: require
 dist: trusty
 
 install:
-  - sudo apt-get -y install libwxgtk2.8-dev 
+  - sudo apt-get -y install libwxgtk2.8-dev netpbm
 
 script:
-  - ./build.sh clean build
+  . /build.sh clean --with-static --without-rawbitmap build
   - ./build.sh install 
   - mkdir appdir ; sudo mv /usr/local appdir/usr ; find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
