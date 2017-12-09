@@ -7,12 +7,13 @@ install:
   - sudo apt-get -y install libwxgtk2.8-dev netpbm
 
 script:
-  - mkdir -p bin
+  - mkdir -p bin # Needed by build.sh, FIXME
+  - sudo mkdir -p /usr/local/share//lisaem/ # Needed by build.sh, FIXME
   - ./configure
   - ./build.sh clean --without-static --without-rawbitmap build
   - sudo ./build.sh install
   - mkdir -p appdir/usr/{bin,share}
-  - cp -r /usr/local/bin/{lisaem,lisafsh-tool} appdir/usr/bin/
+  - cp -r /usr/local/bin/lisaem appdir/usr/bin/ # Where is lisafsh-tool?
   - cp -r /usr/local/share/LisaEm appdir/usr/share/
   - find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
