@@ -17,6 +17,7 @@ script:
   - mkdir -p appdir/usr/share/applications/ ; cp dist/lisaem.desktop appdir/usr/share/applications/
   - mkdir -p appdir/usr/share/icons/hicolor/128x128/apps/
   - convert resources/lisa2icon.xpm -gravity center -extent 128x128 appdir/usr/share/icons/hicolor/128x128/apps/lisa2icon.png
+  - wget -qO- https://github.com/probonopd/LisaEm/releases/download/Mirror/lisaem-profile.dc42.tar.bz2 | tar xjv -C "appdir/usr/share/lisaem"
   - find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
