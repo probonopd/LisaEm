@@ -1,3 +1,8 @@
 #!/bin/bash
 HERE="$(dirname "$(readlink -f "${0}")")"
+
+if [ ! -e "$HOME/lisaem.conf" ] ; then
+  cp "$HERE/usr/share/lisaem/lisaem.conf" "$HOME/lisaem.conf"
+fi
+
 "$HERE/usr/bin/lisaem" "$@"
