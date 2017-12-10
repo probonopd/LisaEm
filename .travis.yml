@@ -25,7 +25,7 @@ script:
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
   - rm dist/AppRun ; cp dist/AppRun appdir/ # Replace with script because LisaEm seemingly uses argv[0] to find files in usr/share
   - ./linuxdeployqt*.AppImage --appimage-extract
-  - rm ./appdir/AppRun ; cp AppRun appdir/ ; chmod a+x ./appdir/AppRun # Replace symlink with custom script
+  - rm ./appdir/AppRun ; cp dist/AppRun appdir/ ; chmod a+x ./appdir/AppRun # Replace symlink with custom script
   - PATH=./squashfs-root/usr/bin:$PATH ./squashfs-root/usr/bin/appimagetool -g ./appdir/
 
 after_success:
