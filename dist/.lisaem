@@ -1,0 +1,16 @@
+soundeffects=1
+displayskins=1
+displaymode=2
+asciikeyboard=1
+lisaconfigfile="$HOME/.lisaem/.lisaem.conf"
+throttle=32
+emutime=30
+emutick=20
+refreshrate=249999
+hidehostmouse=1
+[lisawin]
+sizey=700
+sizex=1000
+[lisaframe]
+sizey=674
+sizex=1020
