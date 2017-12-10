@@ -13,8 +13,8 @@ script:
   - sudo ./build.sh install
   - mkdir -p appdir/usr/{bin,share}
   - cp -r /usr/local/bin/lisaem appdir/usr/bin/ # Where is lisafsh-tool?
-  - mkdir -p appdir/usr/share/LisaEm ; cp -r resources/* appdir/usr/share/LisaEm
-  - mkdir -p appdir/usr/share/applications/ ; cp resources/lisaem.desktop appdir/usr/share/applications/
+  - mkdir -p appdir/usr/share/lisaem ; cp -r resources/* appdir/usr/share/lisaem
+  - mkdir -p appdir/usr/share/applications/ ; cp dist/lisaem.desktop appdir/usr/share/applications/
   - mkdir -p appdir/usr/share/icons/hicolor/128x128/apps/
   - convert resources/lisa2icon.xpm -gravity center -extent 128x128 appdir/usr/share/icons/hicolor/128x128/apps/lisa2icon.png
   - find appdir/
@@ -23,6 +23,7 @@ script:
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
   - export VERSION=$(git rev-parse --short HEAD) # linuxdeployqt uses this for naming the file
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
+  - cp dist/AppRun appdir/
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage
 
 after_success:
