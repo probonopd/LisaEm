@@ -26,6 +26,7 @@ script:
   - rm appdir/AppRun ; cp dist/AppRun appdir/ # Replace with script because LisaEm seemingly uses argv[0] to find files in usr/share
   - ./linuxdeployqt*.AppImage --appimage-extract
   - rm ./appdir/AppRun ; cp dist/AppRun ./appdir/ ; chmod a+x ./appdir/AppRun # Replace symlink with custom script
+  - ( cd appdir/usr/share ; ln -s lisaem LisaEm )
   - PATH=./squashfs-root/usr/bin:$PATH ./squashfs-root/usr/bin/appimagetool -g ./appdir/
 
 after_success:
