@@ -10,4 +10,9 @@ if [ ! -e "$HOME/.lisaem.conf" ] ; then
   cp "$HERE/usr/share/lisaem/.lisaem.conf" "$HOME/.lisaem.conf"
 fi
 
+
+if [ ! -e "$HOME/.lisaem-profile.dc42" ] ; then
+  cp "$HERE/usr/share/lisaem/lisaem-profile.dc42" "$HOME/.lisaem-profile.dc42"
+fi
+
 "$HERE/usr/bin/lisaem" "$@"
